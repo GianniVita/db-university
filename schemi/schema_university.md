@@ -1,5 +1,3 @@
-
-
 ## Modellizzare la struttura di un database per memorizzare tutti i dati riguardanti una università:
 - sono presenti diversi `Dipartimenti` (es.: Lettere e Filosofia, Matematica, Ingegneria ecc.);
 - ogni `Dipartimento` offre più `Corsi di Laurea` (es.: Civiltà e Letterature Classiche, Informatica, Ingegneria Elettronica ecc..)
@@ -36,7 +34,32 @@
 
 # Courses
 - id    BIGINT UNSIGNED PK,AI 
-- corso_laurea_id    
-- nome
-- codice_corso
-- cfu
+- corso_laurea_id   BIGINT UNSIGNED FK,NOT NULL 
+- nome_corso  VARCHAR(100)  
+- codice_corso VARCHAR(10)
+- cfu TINYINT NOT NULL
+
+# Teacehrs
+- id BIGINT PK,AI 
+- nome_insegnante VARCHAR(50) NOT NULL
+- cognome_insegnate VARCHAR(50) NOT NULL
+- codice_fiscale CHAR(16) UNIQUE
+- email  VARCHAR UNIQUE
+
+# Course&Teacher-Pivot (Relazione * - *)
+- corso_id BIGINT UNSIGNED FK,NOT NULL
+- insegnate_id BIGINT UNSIGNED FK,NOT NULL
+
+# Exam Sittings (Relazione 1 - * un corso prevede + appelli)
+- id_exam BIGINT PK, AI 
+- corso_id BIGINT FK(corso_id), NOT NULL
+- data_esame DATETIME, NOT NULL
+- luogo VARCHAR(100) , NOT NULL
+
+# Exam Enrollment&GradeRecords (Relazione * - * many to many)
+- appello_id BIGINT FK NOTNULL
+- studente_matricola BIGINT FK NOT NULL
+- voto TINYINT UNSIGNED NULL
+- stato_iscrizione ENUM NOT NULL, DEFAULT'iscritto'
+- data_verbalizzazione DATE NULL
+- PRIMARY KEY (appello_id, studente_matricola) 
