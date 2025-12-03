@@ -22,4 +22,21 @@
 
 # Degree Courses
 - id    BIGINT UNSIGNED PK, AI
-- dipartiento_id 
+- dipartiento_id BIG UNSIGNED FK NOT NULL
+- nome VARCHAR(100) NOT NULL
+- durata_anni  TINYINT UNSIGNED NOT NULL
+
+# Students
+- matricola     BIGINT UNSIGNED PK,NOT NULL
+- corso_laurea_id BIGINT UNSIGNED PK,NOT NULL
+- nome VARCHAR(50) NOT NULL
+- cognome VARCHAR(50) NOT NULL
+- data_nascita DATE NOT NULL
+- emial VARCHAR(100) UNIQUE
+
+# Courses
+- id    BIGINT UNSIGNED PK,AI 
+- corso_laurea_id    
+- nome
+- codice_corso
+- cfu
