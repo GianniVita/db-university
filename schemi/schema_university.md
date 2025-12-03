@@ -13,3 +13,13 @@
 ## Pensiamo a quali entità (tabelle) creare per il nostro database e cerchiamo poi di stabilirne le relazioni. Infine, andiamo a definire le colonne e i tipi di dato di ogni tabella.
 
 
+## Struttura del Database Universitario
+
+# Departments
+- id	BIGINT UNSIGNED	PK, AI
+- nome  VARCHAR(100) NOT NULL
+- codice VARCHAR(10) NOT NULL UNIQUE
+
+# Degree Courses
+- id    BIGINT UNSIGNED PK, AI
+- dipartiento_id 
