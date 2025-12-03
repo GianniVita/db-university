@@ -26,7 +26,7 @@
 - durata_anni  `TINYINT UNSIGNED NOT NULL`
 
 # Students
-- matricola     `BIGINT UNSIGNED PK,NOT NULL`
+- id_matricola     `BIGINT UNSIGNED PK,NOT NULL`
 - corso_laurea_id `BIGINT UNSIGNED PK,NOT NULL`
 - nome `VARCHAR(50) NOT NULL`
 - cognome `VARCHAR(50) NOT NULL`
@@ -64,6 +64,7 @@
 - stato_iscrizione` ENUM NOT NULL, DEFAULT'iscritto'`
 - data_verbalizzazione `DATE NULL`
     # - PRIMARY KEY (appello_id, studente_matricola) 
+
 
 
 ## RIEPILOGO RELAZIONI 
